@@ -45,6 +45,14 @@ steps:
     arguments: '--no-restore --configuration buildConfiguration'
     projects: '**/*.csproj'
 
+- task: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- task: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - buildConfiguration'
   inputs:
